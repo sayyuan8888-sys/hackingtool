@@ -344,6 +344,54 @@ class Gitleaks(HackingTool):
     PROJECT_URL = "https://github.com/gitleaks/gitleaks"
 
 
+class ShodanCLI(HackingTool):
+    TITLE = "Shodan CLI (Official Command-Line)"
+    DESCRIPTION = (
+        "Official Shodan command-line interface for querying the Shodan search engine.\n"
+        "Requires a Shodan API key: shodan init <API_KEY>\n"
+        "Usage: shodan search apache"
+    )
+    INSTALL_COMMANDS = ["pip install --user shodan"]
+    RUN_COMMANDS = ["shodan --help"]
+    PROJECT_URL = "https://github.com/achillean/shodan-python"
+    SUPPORTED_OS = ["linux", "macos"]
+    TAGS = ["osint", "recon", "scanner"]
+
+
+class ReconNG(HackingTool):
+    TITLE = "Recon-ng (Web Reconnaissance Framework)"
+    DESCRIPTION = (
+        "Full-featured web reconnaissance framework with independent modules,\n"
+        "database interaction, and built-in convenience functions.\n"
+        "Usage: recon-ng"
+    )
+    INSTALL_COMMANDS = [
+        "git clone https://github.com/lanmaster53/recon-ng.git",
+        "cd recon-ng && pip install --user -r REQUIREMENTS",
+    ]
+    RUN_COMMANDS = ["cd recon-ng && python3 recon-ng --help"]
+    PROJECT_URL = "https://github.com/lanmaster53/recon-ng"
+    SUPPORTED_OS = ["linux", "macos"]
+    TAGS = ["osint", "recon"]
+
+
+class Photon(HackingTool):
+    TITLE = "Photon (OSINT Web Crawler)"
+    DESCRIPTION = (
+        "Fast web crawler designed for OSINT — extracts URLs, emails,\n"
+        "social media accounts, files, secret keys, and subdomains.\n"
+        "Usage: python3 photon.py -u https://example.com"
+    )
+    INSTALL_COMMANDS = [
+        "git clone https://github.com/s0md3v/Photon.git",
+        "cd Photon && pip install --user -r requirements.txt",
+    ]
+    RUN_COMMANDS = ["cd Photon && python3 photon.py --help"]
+    PROJECT_URL = "https://github.com/s0md3v/Photon"
+    SUPPORTED_OS = ["linux", "macos"]
+    TAGS = ["osint", "crawler", "recon"]
+
+
 class InformationGatheringTools(HackingToolsCollection):
     TITLE = "Information gathering tools"
     TOOLS = [
@@ -373,6 +421,9 @@ class InformationGatheringTools(HackingToolsCollection):
         Subfinder(),
         TruffleHog(),
         Gitleaks(),
+        ShodanCLI(),
+        ReconNG(),
+        Photon(),
     ]
 
 if __name__ == "__main__":
