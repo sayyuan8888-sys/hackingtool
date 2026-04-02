@@ -254,6 +254,20 @@ class Mitmproxy(HackingTool):
     PROJECT_URL = "https://github.com/mitmproxy/mitmproxy"
 
 
+class Wapiti(HackingTool):
+    TITLE = "Wapiti (Web Vulnerability Scanner)"
+    DESCRIPTION = (
+        "Black-box web application vulnerability scanner — tests for XSS, SQL injection,\n"
+        "CRLF, XXE, SSRF, command injection, and more.\n"
+        "Usage: wapiti -u https://example.com"
+    )
+    INSTALL_COMMANDS = ["pip install --user wapiti3"]
+    RUN_COMMANDS = ["wapiti --help"]
+    PROJECT_URL = "https://github.com/wapiti-scanner/wapiti"
+    SUPPORTED_OS = ["linux", "macos"]
+    TAGS = ["web", "scanner"]
+
+
 class WebAttackTools(HackingToolsCollection):
     TITLE = "Web Attack tools"
     DESCRIPTION = ""
@@ -278,6 +292,7 @@ class WebAttackTools(HackingToolsCollection):
         Arjun(),
         Caido(),
         Mitmproxy(),
+        Wapiti(),
     ]
 
 if __name__ == "__main__":
